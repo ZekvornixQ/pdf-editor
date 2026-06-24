@@ -1,0 +1,174 @@
+:root {
+    --primary-color: #4a90e2;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --bg-color: #f5f7fa;
+    --border-color: #ccd1d9;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.subtitle {
+    color: #666;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.drop-zone {
+    border: 3px dashed var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.drop-zone .sub-text {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.drop-zone.dragover {
+    border-color: var(--primary-color);
+    background-color: #e6f2ff;
+}
+
+.controls {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.action-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.hint-text {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 15px;
+    background-color: #e8f4fd;
+    padding: 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.btn {
+    padding: 10px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-danger {
+    background-color: #fff;
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-save {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+}
+
+.btn-save:hover {
+    background-color: #27ae60;
+}
+
+.thumbnail-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+/* 各ページカード */
+.page-card {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: grab; /* 手のひらマーク（並び替え可能を表現） */
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+    user-select: none;
+}
+
+.page-card:active {
+    cursor: grabbing;
+}
+
+/* ドラッグ中の要素の見た目 */
+.page-card.dragging {
+    opacity: 0.4;
+    border: 2px dashed var(--primary-color);
+}
+
+.page-card.selected {
+    border-color: var(--primary-color);
+    background-color: #f0f7ff;
+}
+
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.page-number {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    margin-top: 5px;
+}

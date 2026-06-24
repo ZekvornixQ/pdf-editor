@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレミアム PDF 編集ツール</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>プレミアム PDF 編集ツール</h1>
+        <p class="subtitle">回転・並び替え（ドラッグ）・削除・結合がこれ1つで可能</p>
+
+        <div id="drop-zone" class="drop-zone">
+            <p>PDFファイルをここにドラッグ＆ドロップ、またはクリックして選択</p>
+            <p class="sub-text">（複数のPDFを選択すると自動で結合されます）</p>
+            <input type="file" id="file-input" accept="application/pdf" multiple style="display: none;">
+        </div>
+
+        <div id="controls" class="controls hidden">
+            <div class="action-group">
+                <button id="btn-left" class="btn">🔄 左90°</button>
+                <button id="btn-180" class="btn">🙃 180°</button>
+                <button id="btn-right" class="btn">🔄 右90°</button>
+            </div>
+            <div class="action-group">
+                <button id="btn-delete" class="btn btn-danger">🗑️ 選択したページを削除</button>
+            </div>
+            <div class="action-group">
+                <button id="btn-download" class="btn btn-save">💾 編集を確定してダウンロード</button>
+            </div>
+        </div>
+
+        <div id="hint-text" class="hint-text hidden">
+            💡 💡 <strong>ヒント:</strong> ページカードをドラッグ＆ドロップすると、自由に順番を並び替えられます。
+        </div>
+
+        <div id="thumbnail-container" class="thumbnail-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
