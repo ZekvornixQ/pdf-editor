@@ -6,6 +6,7 @@
     <title>プレミアム PDF 編集ツール</title>
     <link rel="stylesheet" href="style.css">
     
+    <!-- ライブラリの読み込み -->
     <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
@@ -13,14 +14,16 @@
 
     <div class="container">
         <h1>プレミアム PDF 編集ツール</h1>
-        <p class="subtitle">回転・並び替え（ドラッグ）・削除・結合がこれ1つで可能</p>
+        <p class="subtitle">回転・並び替え（ドラッグ）・抽出・削除・結合がこれ1つで可能</p>
 
+        <!-- ドラッグ＆ドロップエリア -->
         <div id="drop-zone" class="drop-zone">
             <p>PDFファイルをここにドラッグ＆ドロップ、またはクリックして選択</p>
             <p class="sub-text">（複数のPDFを選択すると自動で結合されます）</p>
             <input type="file" id="file-input" accept="application/pdf" multiple style="display: none;">
         </div>
 
+        <!-- コントロールパネル -->
         <div id="controls" class="controls hidden">
             <div class="action-group">
                 <button id="btn-left" class="btn">🔄 左90°</button>
@@ -28,17 +31,20 @@
                 <button id="btn-right" class="btn">🔄 右90°</button>
             </div>
             <div class="action-group">
-                <button id="btn-delete" class="btn btn-danger">🗑️ 選択したページを削除</button>
+                <button id="btn-extract" class="btn btn-primary">✂️ 選択ページのみ抽出</button>
+                <button id="btn-delete" class="btn btn-danger">🗑️ 選択ページを削除</button>
             </div>
             <div class="action-group">
                 <button id="btn-download" class="btn btn-save">💾 編集を確定してダウンロード</button>
             </div>
         </div>
 
+        <!-- ヒント表示 -->
         <div id="hint-text" class="hint-text hidden">
-            💡 💡 <strong>ヒント:</strong> ページカードをドラッグ＆ドロップすると、自由に順番を並び替えられます。
+            💡 <strong>ヒント:</strong> ページカードをクリックして選択 / カードをドラッグ＆ドロップして自由に並び替えられます。
         </div>
 
+        <!-- サムネイル表示エリア -->
         <div id="thumbnail-container" class="thumbnail-container"></div>
     </div>
 
